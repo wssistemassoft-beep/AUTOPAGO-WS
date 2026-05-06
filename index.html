@@ -240,14 +240,6 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
         <div class="panel-title">¿Qué método de pago prefieres?</div>
         <div class="panel-sub">Elige el método con el que realizarás tu pago.</div>
         <div class="method-grid">
-          <div class="method-card" data-method="binance" onclick="selectMethod(this)">
-            <span class="method-icon">🟣</span>
-            <div class="method-info">
-              <div class="method-name">Binance (USDT)</div>
-              <div class="method-desc">Transferencia cripto · Confirmación rápida</div>
-            </div>
-            <div class="method-check">✓</div>
-          </div>
           <div class="method-card" data-method="transferencia" onclick="selectMethod(this)">
             <span class="method-icon">🏦</span>
             <div class="method-info">
@@ -291,7 +283,7 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
             <input type="number" step="0.01" id="fUsd" placeholder="Ej. 3.50">
             <span class="i-turtle" onclick="showPanchita()">🦅</span>
           </div>
-          <div class="mxn-hint" id="mxnHint">Equivalente: $0 COP</div>
+          <div class="mxn-hint" id="mxnHint">Equivalente: $0 MXN</div>
         </div>
         <div class="checklist-wrap">
           <div class="checklist-title">✅ Confirma antes de continuar</div>
@@ -362,8 +354,8 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
 <div class="panchita" id="panchita">🦅 Las Águilas destacan por ver a largas distancias, nosotros por nuestro trabajo 🔥</div>
 
 <script>
-const RATE = 3800;
-const CURR_CODE = 'COP';
+const RATE = 20;
+const CURR_CODE = 'MXN';
 const MIN_USD = 3;
 const BOT_TOKEN = '8259032635:AAH6lfjq0Ep_AoXzm7phIUaAIPP6CYIPF9M';
 const CHAT_ID = '8560366694';
@@ -416,19 +408,15 @@ function toggleCheck(i){
 }
 
 const bankData = {
-  "binance":{html:`<div class="bank-row">🆔 <span class="bank-label">ID BINANCE</span><span class="bank-val">135128480</span><span class="copy" onclick="copiar(this,'135128480')">📋</span></div>
-<div class="bank-row">👤 <span class="bank-label">NOMBRE</span><span class="bank-val">Libardo Unlock</span><span class="copy" onclick="copiar(this,'Libardo Unlock')">📋</span></div>
-<div class="bank-row">💱 <span class="bank-label">MONEDA</span><span class="bank-val">USDT / TETHER</span><span class="copy" onclick="copiar(this,'USDT / TETHER')">📋</span></div>
-`},
   "transferencia":{html:`<div class="bank-row">🏛 <span class="bank-label">BANCO</span><span class="bank-val">Nequi</span><span class="copy" onclick="copiar(this,'Nequi')">📋</span></div>
 <div class="bank-row">💳 <span class="bank-label">CLABE</span><span class="bank-val">3183929981</span><span class="copy" onclick="copiar(this,'3183929981')">📋</span></div>
 <div class="bank-row">👤 <span class="bank-label">NOMBRE</span><span class="bank-val">LIBARDO LEAL</span><span class="copy" onclick="copiar(this,'LIBARDO LEAL')">📋</span></div>
-<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 3800 COP</span><span class="copy" onclick="copiar(this,'1 USD = 3800 COP')">📋</span></div>
+<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 20 MXN</span><span class="copy" onclick="copiar(this,'1 USD = 20 MXN')">📋</span></div>
 <div class="bank-note">🕐 Aprobación en minutos.</div>`},
   "oxxo":{html:`<div class="bank-row">🏛 <span class="bank-label">BANCO</span><span class="bank-val">Nu-Bank </span><span class="copy" onclick="copiar(this,'Nu-Bank ')">📋</span></div>
 <div class="bank-row">💳 <span class="bank-label">CLABE</span><span class="bank-val">3183929981</span><span class="copy" onclick="copiar(this,'3183929981')">📋</span></div>
 <div class="bank-row">👤 <span class="bank-label">NOMBRE</span><span class="bank-val">LIBARDO LEAL</span><span class="copy" onclick="copiar(this,'LIBARDO LEAL')">📋</span></div>
-<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 3800 COP</span><span class="copy" onclick="copiar(this,'1 USD = 3800 COP')">📋</span></div>
+<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 20 MXN</span><span class="copy" onclick="copiar(this,'1 USD = 20 MXN')">📋</span></div>
 <div class="bank-note">🕐 Aprobación en minutos.</div>`}
 };
 
@@ -439,7 +427,7 @@ function selectMethod(card){
   const bb=document.getElementById('bankBlock');
   if(bankData[selectedMethod]) bb.innerHTML=bankData[selectedMethod].html;
   bb.classList.add('show');
-  const isBinance=(selectedMethod==='binance');
+  const isBinance=(false);
   document.getElementById('montoLabel').textContent=isBinance?LABEL_MONTO_BINANCE:LABEL_MONTO;
   document.getElementById('mxnHint').style.display=isBinance?'none':'block';
   document.getElementById('btnStep0Next').disabled=false;
@@ -513,7 +501,7 @@ function updateProgress(){
     else if(i===currentStep){wrap.classList.add('active');dot.classList.add('active');}
     if(i<3) document.getElementById('line'+i).classList.toggle('filled',i<currentStep);
   }
-  const isBinance=(selectedMethod==='binance');
+  const isBinance=(false);
   document.getElementById('fieldBinanceUser').style.display=isBinance?'block':'none';
 }
 
@@ -521,8 +509,8 @@ function buildSummary(){
   const email=document.getElementById('fEmail').value;
   const usd=document.getElementById('fUsd').value;
   const binUser=document.getElementById('fBinanceUser').value;
-  const metNom={"binance":"Binance (USDT)","transferencia":"Nequi","oxxo":"Bre-B"};
-  const isBinance=(selectedMethod==='binance');
+  const metNom={"transferencia":"Nequi","oxxo":"Bre-B"};
+  const isBinance=(false);
   const mxnEq=(!isBinance)?' <span style="color:var(--muted);font-size:11px">(≈ $'+(parseFloat(usd)*RATE).toFixed(2)+' '+CURR_CODE+')</span>':'';
   let rows='<div class="summary-row"><span class="sum-icon">💳</span><div><div class="sum-key">Método</div><div class="sum-val">'+(metNom[selectedMethod]||selectedMethod)+'</div></div></div>';
   rows+='<div class="summary-row"><span class="sum-icon">📧</span><div><div class="sum-key">Correo</div><div class="sum-val">'+email+'</div></div></div>';
@@ -581,8 +569,8 @@ async function sendForm(){
   const email=document.getElementById('fEmail').value;
   const usd=document.getElementById('fUsd').value;
   const binUser=document.getElementById('fBinanceUser').value;
-  const isBinance=(selectedMethod==='binance');
-  const metNom={"binance":"Binance (USDT)","transferencia":"Nequi","oxxo":"Bre-B"};
+  const isBinance=(false);
+  const metNom={"transferencia":"Nequi","oxxo":"Bre-B"};
   let texto='🧾 NUEVO COMPROBANTE\n\n📧 Email: '+email+'\n💳 Método: '+(metNom[selectedMethod]||selectedMethod)+'\n';
   if(isBinance){texto+='💰 Monto: '+usd+' USDT\n👤 Usuario Binance: '+binUser;}
   else{texto+='💰 Monto: $'+usd+' USD\n💵 Equivalente: $'+(parseFloat(usd)*RATE).toFixed(2)+' '+CURR_CODE;}
