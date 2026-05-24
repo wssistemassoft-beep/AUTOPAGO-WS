@@ -104,6 +104,7 @@ body::before{content:'';position:fixed;inset:0;
 .bank-val{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:600;}
 .copy{cursor:pointer;font-size:13px;margin-left:6px;opacity:.6;transition:all .2s;display:inline-block;}
 .copy:hover{opacity:1;transform:scale(1.3)}.copiado{font-size:11px;color:var(--success);margin-left:4px;font-weight:700}
+.copy-noemoji{font-size:10px;font-weight:700;color:var(--primary-light);letter-spacing:.3px;text-transform:uppercase;padding:1px 6px;border-radius:4px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.2);}
 .bank-note{margin-top:12px;padding:10px 14px;border-radius:10px;background:rgba(6,182,212,.08);
   border:1px solid rgba(6,182,212,.2);font-size:12px;color:var(--text);line-height:1.5;}
 .field{margin-bottom:20px}
@@ -208,9 +209,9 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
 </style>
 </head>
 <body>
-<div class="turtle-float" id="turtleFloat">🦅</div>
+<div class="turtle-float" id="turtleFloat">🐢</div>
 <div class="wrapper">
-  <div class="logo">LIBARDO UNLOCK<span class="logo-turtle">🦅</span></div>
+  <div class="logo">WSSERVERMX<span class="logo-turtle">🐢</span></div>
   <div class="card">
     <div class="sec-banner">
       <span class="icon">🔒</span>
@@ -267,23 +268,23 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
           <label class="field-label">Correo registrado en el server</label>
           <div class="input-wrap">
             <input type="email" id="fEmail" placeholder="tucorreo@ejemplo.com" autocomplete="email">
-            <span class="i-turtle" onclick="showPanchita()">🦅</span>
+            <span class="i-turtle" onclick="showPanchita()">🐢</span>
           </div>
         </div>
         <div class="field" id="fieldBinanceUser" style="display:none">
           <label class="field-label">Tu nombre en Binance</label>
           <div class="input-wrap">
             <input type="text" id="fBinanceUser" placeholder="Tal como aparece en tu perfil">
-            <span class="i-turtle" onclick="showPanchita()">🦅</span>
+            <span class="i-turtle" onclick="showPanchita()">🐢</span>
           </div>
         </div>
         <div class="field">
           <label class="field-label" id="montoLabel">Monto pagado (USD)</label>
           <div class="input-wrap">
             <input type="number" step="0.01" id="fUsd" placeholder="Ej. 3.50">
-            <span class="i-turtle" onclick="showPanchita()">🦅</span>
+            <span class="i-turtle" onclick="showPanchita()">🐢</span>
           </div>
-          <div class="mxn-hint" id="mxnHint">Equivalente: $0 MXN</div>
+          <div class="mxn-hint" id="mxnHint">Equivalente: $0 COP</div>
         </div>
         <div class="checklist-wrap">
           <div class="checklist-title">✅ Confirma antes de continuar</div>
@@ -351,11 +352,11 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
     <a class="footer-whatsapp" href="https://api.whatsapp.com/send/?phone=526566600420&text=Hola%2C+me+interesa+su+sistema" target="_blank" rel="noopener noreferrer">Pedir info</a>
   </div>
 </div>
-<div class="panchita" id="panchita">🦅 Las Águilas destacan por ver a largas distancias, nosotros por nuestro trabajo 🔥</div>
+<div class="panchita" id="panchita">🐢 ¡Hola! Soy Panchita, la mascota de WS. Tengo 2 añitos y soy más rápida de lo que crees 💚</div>
 
 <script>
-const RATE = 20;
-const CURR_CODE = 'MXN';
+const RATE = 4000;
+const CURR_CODE = 'COP';
 const MIN_USD = 3;
 const BOT_TOKEN = '8259032635:AAH6lfjq0Ep_AoXzm7phIUaAIPP6CYIPF9M';
 const CHAT_ID = '8560366694';
@@ -411,12 +412,12 @@ const bankData = {
   "transferencia":{html:`<div class="bank-row">🏛 <span class="bank-label">BANCO</span><span class="bank-val">Nequi</span><span class="copy" onclick="copiar(this,'Nequi')">📋</span></div>
 <div class="bank-row">💳 <span class="bank-label">CLABE</span><span class="bank-val">3183929981</span><span class="copy" onclick="copiar(this,'3183929981')">📋</span></div>
 <div class="bank-row">👤 <span class="bank-label">NOMBRE</span><span class="bank-val">LIBARDO LEAL</span><span class="copy" onclick="copiar(this,'LIBARDO LEAL')">📋</span></div>
-<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 20 MXN</span><span class="copy" onclick="copiar(this,'1 USD = 20 MXN')">📋</span></div>
+<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 4000 COP</span><span class="copy" onclick="copiar(this,'1 USD = 4000 COP')">📋</span></div>
 <div class="bank-note">🕐 Aprobación en minutos.</div>`},
   "oxxo":{html:`<div class="bank-row">🏛 <span class="bank-label">BANCO</span><span class="bank-val">Nu-Bank </span><span class="copy" onclick="copiar(this,'Nu-Bank ')">📋</span></div>
 <div class="bank-row">💳 <span class="bank-label">CLABE</span><span class="bank-val">3183929981</span><span class="copy" onclick="copiar(this,'3183929981')">📋</span></div>
 <div class="bank-row">👤 <span class="bank-label">NOMBRE</span><span class="bank-val">LIBARDO LEAL</span><span class="copy" onclick="copiar(this,'LIBARDO LEAL')">📋</span></div>
-<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 20 MXN</span><span class="copy" onclick="copiar(this,'1 USD = 20 MXN')">📋</span></div>
+<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 4000 COP</span><span class="copy" onclick="copiar(this,'1 USD = 4000 COP')">📋</span></div>
 <div class="bank-note">🕐 Aprobación en minutos.</div>`}
 };
 
