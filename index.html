@@ -245,7 +245,7 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
             <span class="method-icon">🏦</span>
             <div class="method-info">
               <div class="method-name">Nequi</div>
-              <div class="method-desc">ID · SOLO COLOMBIA · Tiempo varía según la institución</div>
+              <div class="method-desc">Transferencia - Aprovación en minutos. </div>
             </div>
             <div class="method-check">✓</div>
           </div>
@@ -253,7 +253,7 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
             <span class="method-icon">🏪</span>
             <div class="method-info">
               <div class="method-name">Bre-B</div>
-              <div class="method-desc">ID · SOLO COLOMBIA · Tiempo varía según la institución</div>
+              <div class="method-desc">Transferencia - Aprovación en minutos. </div>
             </div>
             <div class="method-check">✓</div>
           </div></div>
@@ -284,7 +284,7 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
             <input type="number" step="0.01" id="fUsd" placeholder="Ej. 3.50">
             <span class="i-turtle" onclick="showPanchita()">🦅</span>
           </div>
-          <div class="mxn-hint" id="mxnHint">Equivalente: $0 COP</div>
+          <div class="mxn-hint" id="mxnHint">Equivalente: $0 MXN</div>
         </div>
         <div class="checklist-wrap">
           <div class="checklist-title">✅ Confirma antes de continuar</div>
@@ -355,8 +355,8 @@ input:focus ~ .i-turtle{transform:translateY(-50%) scale(1);opacity:1;animation:
 <div class="panchita" id="panchita">Las águilas destacan por tener una buena vista, nosotros por nuestro trabajo 🦅</div>
 
 <script>
-const RATE = 4000;
-const CURR_CODE = 'COP';
+const RATE = 20;
+const CURR_CODE = 'MXN';
 const MIN_USD = 3;
 const BOT_TOKEN = '8259032635:AAH6lfjq0Ep_AoXzm7phIUaAIPP6CYIPF9M';
 const CHAT_ID = '8560366694';
@@ -412,12 +412,12 @@ const bankData = {
   "transferencia":{html:`<div class="bank-row">🏛 <span class="bank-label">BANCO</span><span class="bank-val">Nequi</span><span class="copy" onclick="copiar(this,'Nequi')">📋</span></div>
 <div class="bank-row">💳 <span class="bank-label">NÚMERO</span><span class="bank-val">3183929981</span><span class="copy" onclick="copiar(this,'3183929981')">📋</span></div>
 <div class="bank-row">👤 <span class="bank-label">TITULAR</span><span class="bank-val">LIBARDO LEAL</span><span class="copy" onclick="copiar(this,'LIBARDO LEAL')">📋</span></div>
-<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 4000 COP</span><span class="copy" onclick="copiar(this,'1 USD = 4000 COP')">📋</span></div>
+<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 20 MXN</span><span class="copy" onclick="copiar(this,'1 USD = 20 MXN')">📋</span></div>
 <div class="bank-note">🕐 Aprobación en minutos.</div>`},
-  "oxxo":{html:`<div class="bank-row">🏛 <span class="bank-label">BANCOLOMBIA</span><span class="bank-val">Nu-Bank </span><span class="copy" onclick="copiar(this,'Nu-Bank ')">📋</span></div>
+  "oxxo":{html:`<div class="bank-row">🏛 <span class="bank-label">BANCO</span><span class="bank-val">BANCOLOMBIA</span><span class="copy" onclick="copiar(this,'BANCOLOMBIA')">📋</span></div>
 <div class="bank-row">💳 <span class="bank-label">LLAVE</span><span class="bank-val">3183929981</span><span class="copy" onclick="copiar(this,'3183929981')">📋</span></div>
 <div class="bank-row">👤 <span class="bank-label">TITULAR</span><span class="bank-val">LIBARDO LEAL</span><span class="copy" onclick="copiar(this,'LIBARDO LEAL')">📋</span></div>
-<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 4000 COP</span><span class="copy" onclick="copiar(this,'1 USD = 4000 COP')">📋</span></div>
+<div class="bank-row">💵 <span class="bank-label">TIPO DE CAMBIO</span><span class="bank-val">1 USD = 20 MXN</span><span class="copy" onclick="copiar(this,'1 USD = 20 MXN')">📋</span></div>
 <div class="bank-note">🕐 Aprobación en minutos.</div>`}
 };
 
